@@ -7,11 +7,14 @@ set nocompatible
 set rtp+=~/.vim/bundle/Vundle.vim
 
 call vundle#begin()
-Plugin 'ctrlp.vim'
-Plugin 'The-NERD-tree'
+Plugin 'gmarik/Vundle.vim'
+Plugin 'kien/ctrlp.vim'
+Plugin 'scrooloose/nerdtree'
+Plugin 'airblade/vim-gitgutter'
 Plugin 'davidhalter/jedi-vim'
 Plugin 'Lokaltog/vim-easymotion'
-Plugin 'Lokaltog/vim-powerline'
+"Plugin 'Lokaltog/vim-powerline'
+Plugin 'bling/vim-airline'
 Plugin 'altercation/vim-colors-solarized'
 Plugin 'Valloric/YouCompleteMe'
 Plugin 'Shougo/vimshell.vim'
@@ -20,8 +23,10 @@ Plugin 'Shougo/vimproc.vim'
 Plugin 'vim-scripts/indentLine.vim'
 Plugin 'terryma/vim-multiple-cursors'
 Plugin 'tpope/vim-fugitive'
-Plugin 'mileszs/ack.vim'
 Plugin 'tpope/vim-git'
+Plugin 'mileszs/ack.vim'
+Plugin 'mattn/emmet-vim'
+Plugin 'tpope/vim-surround'
 call vundle#end()
 filetype plugin indent on
 
@@ -52,6 +57,8 @@ let g:jedi#rename_command = "<leader>r"
 let g:jedi#show_call_signatures = "1"
 let g:jedi#popup_select_first = 0
 "}
+let g:ycm_auto_trigger = 0
+let g:ycm_key_list_select_completion = ['<Enter>']
 
 "autocmd vimenter * NERDTree
 
@@ -117,3 +124,4 @@ let g:EasyMotion_use_upper = 1
 let g:EasyMotion_smartcase = 1
 let g:EasyMotion_use_smartsign_us = 1
 
+iabbrev mysqllogin mysql -h127.0.0.1 -utest -ptest -P8066
