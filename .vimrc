@@ -12,9 +12,7 @@ Plugin 'gmarik/Vundle.vim'
 Plugin 'kien/ctrlp.vim'
 Plugin 'scrooloose/nerdtree'
 Plugin 'airblade/vim-gitgutter'
-"Plugin 'davidhalter/jedi-vim'
 Plugin 'Lokaltog/vim-easymotion'
-"Plugin 'Lokaltog/vim-powerline'
 Plugin 'bling/vim-airline'
 Plugin 'altercation/vim-colors-solarized'
 Plugin 'Valloric/YouCompleteMe'
@@ -44,6 +42,7 @@ let NERDTreeIgnore=['.pyc$', '\~$']
  "set nocompatible set t_Co=256
  let g:Powerline_symbols = 'fancy'
 "}
+nnoremap <leader>jd :YcmCompleter GoTo<CR>
 
 set guifont=menlo:h12
 
@@ -109,5 +108,7 @@ omap t <Plug>(easymotion-bd-tl)
 let g:EasyMotion_use_upper = 1
 let g:EasyMotion_smartcase = 1
 let g:EasyMotion_use_smartsign_us = 1
+let g:ycm_global_ycm_extra_conf = '~/.ycm_extra_conf.py'
+
 
 iabbrev mysqllogin mysql -h127.0.0.1 -utest -ptest -P8066
