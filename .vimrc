@@ -47,9 +47,6 @@ let NERDTreeIgnore=['.pyc$', '\~$']
 
 set guifont=menlo:h12
 
-"let g:ycm_auto_trigger = 0
-"let g:ycm_key_list_select_completion = ['<Enter>']
-
 
 "syntastic{
 execute pathogen#infect()
