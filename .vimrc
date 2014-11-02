@@ -12,7 +12,7 @@ Plugin 'gmarik/Vundle.vim'
 Plugin 'kien/ctrlp.vim'
 Plugin 'scrooloose/nerdtree'
 Plugin 'airblade/vim-gitgutter'
-Plugin 'davidhalter/jedi-vim'
+"Plugin 'davidhalter/jedi-vim'
 Plugin 'Lokaltog/vim-easymotion'
 "Plugin 'Lokaltog/vim-powerline'
 Plugin 'bling/vim-airline'
@@ -36,7 +36,7 @@ set list lcs=tab:>-,trail:-
 call pathogen#infect()
 call pathogen#helptags()
 
-let g:NERDTreeQuitOnOpen = 1
+"let g:NERDTreeQuitOnOpen = 1
 let NERDTreeIgnore=['.pyc$', '\~$']
 
 "powerline{
@@ -47,21 +47,9 @@ let NERDTreeIgnore=['.pyc$', '\~$']
 
 set guifont=menlo:h12
 
-"jedi{
-"let g:jedi#auto_initialization = 1
-let g:jedi#goto_assignments_command = "<leader>g"
-let g:jedi#goto_definitions_command = "<leader>d"
-"let g:jedi#documentation_command = "K"
-let g:jedi#usages_command = "<leader>n"
-"let g:jedi#completions_command = "<C-Space>"
-let g:jedi#rename_command = "<leader>r"
-let g:jedi#show_call_signatures = "1"
-let g:jedi#popup_select_first = 0
-"}
 "let g:ycm_auto_trigger = 0
 "let g:ycm_key_list_select_completion = ['<Enter>']
 
-"autocmd vimenter * NERDTree
 
 "syntastic{
 execute pathogen#infect()
