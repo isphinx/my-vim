@@ -26,6 +26,8 @@ Plugin 'tpope/vim-git'
 Plugin 'mileszs/ack.vim'
 Plugin 'mattn/emmet-vim'
 Plugin 'tpope/vim-surround'
+Plugin 'sjl/badwolf'
+Plugin 'gregsexton/gitv'
 call vundle#end()
 filetype plugin indent on
 
@@ -34,7 +36,7 @@ set list lcs=tab:>-,trail:-
 call pathogen#infect()
 call pathogen#helptags()
 
-"let g:NERDTreeQuitOnOpen = 1
+let g:NERDTreeQuitOnOpen = 1
 let NERDTreeIgnore=['.pyc$', '\~$']
 
 "powerline{
@@ -81,7 +83,7 @@ set autoread
 "set foldmethod=indent 
 "set foldlevel=5
 syntax on
-colorscheme inkpot
+colorscheme badwolf
 
 set sw=4
 set tabstop=4
@@ -109,6 +111,10 @@ let g:EasyMotion_use_upper = 1
 let g:EasyMotion_smartcase = 1
 let g:EasyMotion_use_smartsign_us = 1
 let g:ycm_global_ycm_extra_conf = '~/.ycm_extra_conf.py'
+let g:ycm_autoclose_preview_window_after_completion = 1
+let g:ycm_autoclose_preview_window_after_insertion = 1
 
+nmap <c-p><c-p> :CtrlPQuickfix<cr>
+nmap <c-o><c-p> :CtrlPMRU<cr>
 
 iabbrev mysqllogin mysql -h127.0.0.1 -utest -ptest -P8066
