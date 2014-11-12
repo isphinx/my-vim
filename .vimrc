@@ -14,19 +14,14 @@ Plugin 'scrooloose/nerdtree'
 Plugin 'airblade/vim-gitgutter'
 Plugin 'Lokaltog/vim-easymotion'
 Plugin 'bling/vim-airline'
-Plugin 'altercation/vim-colors-solarized'
 Plugin 'Valloric/YouCompleteMe'
-Plugin 'Shougo/vimshell.vim'
 Plugin 'scrooloose/syntastic'
-Plugin 'Shougo/vimproc.vim'
 Plugin 'vim-scripts/indentLine.vim'
 Plugin 'terryma/vim-multiple-cursors'
 Plugin 'tpope/vim-fugitive'
 Plugin 'tpope/vim-git'
-Plugin 'mileszs/ack.vim'
 Plugin 'mattn/emmet-vim'
 Plugin 'tpope/vim-surround'
-Plugin 'sjl/badwolf'
 Plugin 'gregsexton/gitv'
 call vundle#end()
 filetype plugin indent on
@@ -93,8 +88,7 @@ map <silent> <leader>ss :source ~/.vimrc<cr>
 map <silent> <leader>ee :e ~/.vimrc<cr>
 map <leader>i :NERDTreeToggle <cr>
 "map <leader>im :PymodeRopeAutoImport<cr>
-nnoremap <leader>wl <c-w>v<c-w>l
-nnoremap <leader>w <c-w>w
+nnoremap <leader>w <c-w>
 imap jk <esc>
 
 map  / <Plug>(easymotion-sn)
