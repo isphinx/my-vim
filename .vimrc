@@ -23,6 +23,7 @@ Plugin 'tpope/vim-git'
 Plugin 'mattn/emmet-vim'
 Plugin 'tpope/vim-surround'
 Plugin 'gregsexton/gitv'
+Plugin 'mileszs/ack.vim'
 call vundle#end()
 filetype plugin indent on
 
@@ -33,16 +34,7 @@ call pathogen#helptags()
 
 let g:NERDTreeQuitOnOpen = 1
 let NERDTreeIgnore=['.pyc$', '\~$']
-
-"powerline{
-" set guifont=PowerlineSymbols\ for\ Powerline
- "set nocompatible set t_Co=256
- let g:Powerline_symbols = 'fancy'
-"}
 nnoremap <leader>jd :YcmCompleter GoTo<CR>
-
-set guifont=menlo:h12
-
 
 "syntastic{
 execute pathogen#infect()
@@ -55,7 +47,6 @@ let g:syntastic_warning_symbol = "⚠"
 let g:syntastic_style_error_symbol = "⚠="
 let g:syntastic_auto_jump = 0
 "}
-
 
 
 set nu
@@ -111,4 +102,3 @@ let g:ycm_autoclose_preview_window_after_insertion = 1
 nmap <c-p><c-p> :CtrlPQuickfix<cr>
 nmap <c-o><c-p> :CtrlPMRU<cr>
 
-iabbrev mysqllogin mysql -h127.0.0.1 -utest -ptest -P8066
