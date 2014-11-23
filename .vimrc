@@ -2,11 +2,7 @@ if !exists(":DiffOrig")
 	command DiffOrig vert new | set bt=nofile | r ++edit # | 0d_ | diffthis | wincmd p | diffthis
 endif
 
-set mouse=a
-set expandtab
-set nocompatible
 set rtp+=~/.vim/bundle/Vundle.vim
-
 call vundle#begin()
 Plugin 'gmarik/Vundle.vim'
 Plugin 'kien/ctrlp.vim'
@@ -26,8 +22,9 @@ Plugin 'gregsexton/gitv'
 Plugin 'mileszs/ack.vim'
 call vundle#end()
 filetype plugin indent on
+filetype plugin on
 
-set list lcs=tab:>-,trail:-
+"set list lcs=tab:>-,trail:-
 
 call pathogen#infect()
 call pathogen#helptags()
@@ -61,12 +58,12 @@ set magic
 set sm
 set backspace=indent,eol,start
 set cmdheight=1
-
-
+set mouse=a
+set nocompatible
 set laststatus=2
 set autoread
 "set foldcolumn=2
-"set foldmethod=indent 
+"set foldmethod=indent
 "set foldlevel=5
 syntax on
 colorscheme badwolf
@@ -75,17 +72,14 @@ set sw=4
 set tabstop=4
 set softtabstop=4
 
+imap jk <esc>
 map <silent> <leader>ss :source ~/.vimrc<cr>
 map <silent> <leader>ee :e ~/.vimrc<cr>
 map <leader>i :NERDTreeToggle <cr>
-"map <leader>im :PymodeRopeAutoImport<cr>
-nnoremap <leader>w <c-w>
-imap jk <esc>
+nmap <leader>w <c-w>
 
 map  / <Plug>(easymotion-sn)
 omap / <Plug>(easymotion-tn)
-"map  n <Plug>(easymotion-next)
-"map  N <Plug>(easymotion-prev)
 map <Leader>l <Plug>(easymotion-lineforward)
 map <Leader>j <Plug>(easymotion-j)
 map <Leader>k <Plug>(easymotion-k)

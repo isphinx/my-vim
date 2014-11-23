@@ -45,7 +45,7 @@ ZSH_THEME="re5et"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git jump osx themes rvm)
+plugins=(git jump osx themes rvm brew go battery)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -55,6 +55,11 @@ export PATH=$HOME/bin:/usr/local/bin:$PATH
 export JAVA_HOME=`/usr/libexec/java_home`
 export PATH=$PATH:/usr/local/mysql/bin
 export PATH=$PATH:/usr/bin
+
+export GOROOT=/usr/local/Cellar/go/1.3.3/libexec
+export GOPATH=$HOME/code/go
+export GOBIN=$HOME/code/go/bin
+export PATH=$PATH:$GOPATH/bin
 # export MANPATH="/usr/local/man:$MANPATH"
 
 # You may need to manually set your language environment
@@ -84,10 +89,24 @@ export PATH=$PATH:/usr/bin
 alias cobar="mysql -h127.0.0.1 -utest -ptest -P8066 -Ddb_traversing"
 alias gp="git pull origin master:master"
 alias gc="git push origin master:master"
-alias tb="cd ~/code/mobarts/transfer/TTransfer/frameworks/runtime-src/proj.ios_mac/ ; ~/code/cocos2d-x-3.3rc0/tools/cocos2d-console/bin/cocos run -p ios ;/Users/lucas/code/cocos2d-x-3.3rc0/tools/cocos2d-console/bin/../plugins/project_run/bin/ios-sim-xcode6 launch '/Users/lucas/code/mobarts/transfer/TTransfer/runtime/ios/主公别闹.app' & ; cd -"
-alias tr="/Users/lucas/code/cocos2d-x-3.3rc0/tools/cocos2d-console/bin/../plugins/project_run/bin/ios-sim-xcode6 launch '/Users/lucas/code/mobarts/transfer/TTransfer/runtime/ios/主公别闹.app' & "
 hash -d t1=~/code/mobarts/transfer/TTransfer
 hash -d t2=~/code/mobarts/traversing
+hash -d mg=~/code/go/src/mytest
+
+function tb
+{
+    cd ~/code/mobarts/transfer/TTransfer/frameworks/runtime-src/proj.ios_mac/
+    ~/code/cocos2d-x-3.3rc0/tools/cocos2d-console/bin/cocos run -p ios
+}
+function tr
+{
+    cd ~/code/mobarts/transfer/TTransfer/frameworks/runtime-src/proj.ios_mac
+    xcodebuild -project "TTransfer.xcodeproj" -configuration Debug -target "TTransfer iOS" -arch i386 -sdk iphonesimulator CONFIGURATION_BUILD_DIR="~/code/mobarts/transfer/TTransfer/runtime/ios" VALID_ARCHS="i386"
+    cd ~/code
+    ./ios-sim launch '~/code/mobarts/transfer/TTransfer/runtime/ios/主公别闹.app' --stdout a --stderr a &
+
+    tail -f a
+}
 
 function poto
 {
@@ -101,5 +120,5 @@ function poto
 }
 
 # Add environment variable COCOS_CONSOLE_ROOT for cocos2d-x
-export COCOS_CONSOLE_ROOT=/Users/lucas/code/cocos2d-x-3.3beta0/tools/cocos2d-console/bin
+export COCOS_CONSOLE_ROOT=/Users/lucas/code/cocos2d-x-3.3rc0/tools/cocos2d-console/bin
 export PATH=$COCOS_CONSOLE_ROOT:$PATH
