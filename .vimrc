@@ -15,11 +15,13 @@ Plugin 'scrooloose/syntastic'
 Plugin 'vim-scripts/indentLine.vim'
 Plugin 'terryma/vim-multiple-cursors'
 Plugin 'tpope/vim-fugitive'
-Plugin 'tpope/vim-git'
 Plugin 'mattn/emmet-vim'
 Plugin 'tpope/vim-surround'
-Plugin 'gregsexton/gitv'
 Plugin 'mileszs/ack.vim'
+Plugin 'fatih/vim-go'
+Plugin 'majutsushi/tagbar'
+Plugin 'lilydjwg/colorizer'
+Plugin 'cohama/agit'
 call vundle#end()
 filetype plugin indent on
 filetype plugin on
@@ -95,4 +97,35 @@ let g:ycm_autoclose_preview_window_after_insertion = 1
 
 nmap <c-p><c-p> :CtrlPQuickfix<cr>
 nmap <c-o><c-p> :CtrlPMRU<cr>
+nmap <F8> :TagbarToggle<CR>
+let g:tagbar_type_go = {
+    \ 'ctagstype' : 'go',
+    \ 'kinds'     : [
+        \ 'p:package',
+        \ 'i:imports:1',
+        \ 'c:constants',
+        \ 'v:variables',
+        \ 't:types',
+        \ 'n:interfaces',
+        \ 'w:fields',
+        \ 'e:embedded',
+        \ 'm:methods',
+        \ 'r:constructor',
+        \ 'f:functions'
+    \ ],
+    \ 'sro' : '.',
+    \ 'kind2scope' : {
+        \ 't' : 'ctype',
+        \ 'n' : 'ntype'
+    \ },
+    \ 'scope2kind' : {
+        \ 'ctype' : 't',
+        \ 'ntype' : 'n'
+    \ },
+    \ 'ctagsbin'  : 'gotags',
+    \ 'ctagsargs' : '-sort -silent'
+	\ }
 
+let g:vimgdb_debug_file = ""
+run macros/gdb_mappings.vim
+map <F2> :run macros/gdb_mappings.vim<CR>

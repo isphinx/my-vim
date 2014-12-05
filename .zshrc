@@ -87,16 +87,17 @@ export PATH=$PATH:$GOPATH/bin
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 alias cobar="mysql -h127.0.0.1 -utest -ptest -P8066 -Ddb_traversing"
-alias gp="git pull origin master:master"
+alias gp="git pull origin master:master ; git submodule foreach git pull origin master:master"
 alias gc="git push origin master:master"
 hash -d t1=~/code/mobarts/transfer/TTransfer
 hash -d t2=~/code/mobarts/traversing
-hash -d mg=~/code/go/src/mytest
+hash -d mg=~/code/go/src
 
-function tb
+function gob
 {
-    cd ~/code/mobarts/transfer/TTransfer/frameworks/runtime-src/proj.ios_mac/
-    ~/code/cocos2d-x-3.3rc0/tools/cocos2d-console/bin/cocos run -p ios
+	cd ~/code/mobarts/traversing/go
+	go build -o ../igo
+	cd -
 }
 function tr
 {
