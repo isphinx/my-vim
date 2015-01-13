@@ -22,6 +22,8 @@ Plugin 'fatih/vim-go'
 Plugin 'majutsushi/tagbar'
 Plugin 'lilydjwg/colorizer'
 Plugin 'cohama/agit'
+Plugin 'honza/vim-snippets'
+Plugin 'SirVer/ultisnips'
 call vundle#end()
 filetype plugin indent on
 filetype plugin on
@@ -64,6 +66,7 @@ set mouse=a
 set nocompatible
 set laststatus=2
 set autoread
+set cursorline
 "set foldcolumn=2
 "set foldmethod=indent
 "set foldlevel=5
@@ -129,3 +132,37 @@ let g:tagbar_type_go = {
 let g:vimgdb_debug_file = ""
 run macros/gdb_mappings.vim
 map <F2> :run macros/gdb_mappings.vim<CR>
+let g:airline#extensions#tabline#enabled = 1
+let g:airline#extensions#tabline#buffer_idx_mode = 1
+let g:airline#extensions#tabline#buffer_min_count = 2
+nmap <leader>1 <Plug>AirlineSelectTab1<cr>
+nmap <leader>2 <Plug>AirlineSelectTab2<cr>
+nmap <leader>3 <Plug>AirlineSelectTab3<cr>
+nmap <leader>4 <Plug>AirlineSelectTab4<cr>
+nmap <leader>5 <Plug>AirlineSelectTab5<cr>
+nmap <leader>6 <Plug>AirlineSelectTab6<cr>
+nmap <leader>7 <Plug>AirlineSelectTab7<cr>
+nmap <leader>8 <Plug>AirlineSelectTab8<cr>
+nmap <leader>9 <Plug>AirlineSelectTab9<cr>
+let g:airline_powerline_fonts = 1
+if !exists('g:airline_symbols')
+	let g:airline_symbols = {}
+endif
+let g:airline_left_sep = '⮀'
+let g:airline_left_alt_sep = '⮁'
+let g:airline_right_sep = '⮂'
+let g:airline_right_alt_sep = '⮃'
+let g:airline_symbols.branch = '⭠'
+let g:airline_symbols.readonly = '⭤'
+let g:airline_symbols.linenr = '⭡'
+
+" Enable CursorLine
+set cursorline
+
+highlight  CursorLine ctermbg=Green ctermfg=None
+autocmd InsertEnter * highlight  CursorLine ctermbg=blue ctermfg=Red
+autocmd InsertLeave * highlight  CursorLine ctermbg=Green ctermfg=None
+
+let g:UltiSnipsExpandTrigger="<c-j><c-k>"
+let g:UltiSnipsJumpForwardTrigger="<c-j>"
+let g:UltiSnipsJumpBackwardTrigger="<c-k>"
