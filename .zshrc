@@ -45,21 +45,24 @@ ZSH_THEME="re5et"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git jump osx themes rvm brew go battery)
+plugins=(git git-flow jump osx themes rvm brew go battery)
 
 source $ZSH/oh-my-zsh.sh
 
 # User configuration
 
 export PATH=$HOME/bin:/usr/local/bin:$PATH
-export JAVA_HOME=`/usr/libexec/java_home`
+# export JAVA_HOME=`/usr/libexec/java_home`
 export PATH=$PATH:/usr/local/mysql/bin
 export PATH=$PATH:/usr/bin
 
-export GOROOT=/usr/local/Cellar/go/1.4/libexec
+export GOROOT=/usr/local/Cellar/go/1.5.1/libexec
 export GOPATH=$HOME/code/go
 export GOBIN=$HOME/code/go/bin
 export PATH=$PATH:$GOPATH/bin
+export PATH=$PATH:/Users/lucas/code/rust/bin
+# export RUST_SRC_PATH=$HOME/code/rust/src
+export RUST_SRC_PATH=/Users/lucas/code/rust/rust-master/src
 # export MANPATH="/usr/local/man:$MANPATH"
 
 # You may need to manually set your language environment
@@ -86,13 +89,14 @@ export PATH=$PATH:$GOPATH/bin
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
-alias cobar="mysql -h127.0.0.1 -utest -ptest -P8066 -Ddb_traversing"
+alias tree="find . -print | sed -e 's;[^/]*/;|____;g;s;____|; |;g'"
 alias mmysql="mysql -h127.0.0.1 -uroot -p123456 -Ddb_traversing"
-alias gp="git pull origin master:master ; git submodule foreach git pull origin master:master"
-alias gc="git push origin master:mm"
+alias gp="git pull origin lixin:lixin"
+alias gc="git push origin lixin:lixin"
+alias vi=nvim
 hash -d t1=~/code/mobarts/transfer/TTransfer
 hash -d t2=~/code/mobarts/traversing
-hash -d mg=~/code/go/src
+hash -d t3=~/code/go/src/engine
 
 function gob
 {
@@ -102,12 +106,14 @@ function gob
 }
 function tr
 {
-    cd ~/code/mobarts/transfer/TTransfer/frameworks/runtime-src/proj.ios_mac
-    xcodebuild -project "TTransfer.xcodeproj" -configuration Debug -target "TTransfer iOS" -arch i386 -sdk iphonesimulator CONFIGURATION_BUILD_DIR="~/code/mobarts/transfer/TTransfer/runtime/ios" VALID_ARCHS="i386"
-    cd ~/code
-    ./ios-sim launch '~/code/mobarts/transfer/TTransfer/runtime/ios/主公别闹.app' --stdout a --stderr a &
+    xcodebuild -project "/Users/lucas/code/mobarts/transfer/TTransfer/frameworks/runtime-src/proj.ios_mac/TTransfer.xcodeproj" -configuration Debug -target "TTransfer Mac"
+    open /Users/lucas/code/mobarts/transfer/TTransfer/runtime/mac/TTransfer\ Mac.app/Contents/MacOS/TTransfer\ Mac
+}
+function tr2
+{
+    cp -fr /Users/lucas/code/mobarts/transfer/TTransfer/runtime/mac/TTransfer\ Mac.app /Users/lucas/code/mobarts/transfer/TTransfer/runtime/mac/TTransfer\ Mac.app2
 
-    tail -f a
+    open /Users/lucas/code/mobarts/transfer/TTransfer/runtime/mac/TTransfer\ Mac.app2
 }
 
 function poto
@@ -116,11 +122,13 @@ function poto
     protoc --python_out=.. *
     cd ~/code/mobarts/traversing/tool/
     python proto_to_one.py
-    cp ~/code/mobarts/traversing/tool/traversing_one.proto ~/code/mobarts/transfer/TTransfer/res/pb/traversing_one.proto
+    cp ~/code/mobarts/traversing/proto/traversing_one.proto ~/code/mobarts/transfer/TTransfer/res/pb/traversing_one.proto
     cd ~/code/mobarts/transfer/TTransfer/res/pb/
     sh proto.sh
 }
 
 # Add environment variable COCOS_CONSOLE_ROOT for cocos2d-x
 export COCOS_CONSOLE_ROOT=/Users/lucas/code/cocos2d-x-3.3rc0/tools/cocos2d-console/bin
-export PATH=$COCOS_CONSOLE_ROOT:$PATH
+# export PATH=$COCOS_CONSOLE_ROOT:$PATH
+export LC_CTYPE=en_US.UTF-8
+export LC_ALL=en_US.UTF-8

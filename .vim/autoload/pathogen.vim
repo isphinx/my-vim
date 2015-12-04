@@ -108,7 +108,7 @@ endfunction "}}}1
 function! pathogen#surround(path) abort
   let sep = pathogen#slash()
   let rtp = pathogen#split(&rtp)
-  let path = fnamemodify(a:path, ':p:?[\\/]\=$??')
+  let path = fnamemodify(a:path, ':p:s?[\\/]\=$??')
   let before = filter(pathogen#expand(path), '!pathogen#is_disabled(v:val)')
   let after = filter(reverse(pathogen#expand(path.sep.'after')), '!pathogen#is_disabled(v:val[0:-7])')
   call filter(rtp, 'index(before + after, v:val) == -1')
@@ -343,5 +343,3 @@ command! -bar -bang -range=1 -nargs=1 -complete=customlist,s:Findcomplete Vvspli
 command! -bar -bang -range=1 -nargs=1 -complete=customlist,s:Findcomplete Vtabedit :execute s:find(<count>,'tabedit',<q-args>,<bang>1)
 command! -bar -bang -range=1 -nargs=1 -complete=customlist,s:Findcomplete Vpedit   :execute s:find(<count>,'pedit',<q-args>,<bang>1)
 command! -bar -bang -range=1 -nargs=1 -complete=customlist,s:Findcomplete Vread    :execute s:find(<count>,'read',<q-args>,<bang>1)
-
-" vim:set et sw=2 foldmethod=expr foldexpr=getline(v\:lnum)=~'^\"\ Section\:'?'>1'\:getline(v\:lnum)=~#'^fu'?'a1'\:getline(v\:lnum)=~#'^endf'?'s1'\:'=':
