@@ -5,10 +5,15 @@ export ZSH=$HOME/.oh-my-zsh
 # Look in ~/.oh-my-zsh/themes/
 # Optionally, if you set this to "random", it'll load a random theme each
 # time that oh-my-zsh is loaded.
-ZSH_THEME="re5et"
+# ZSH_THEME="re5et"
+ZSH_THEME="amuse"
 
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
+
+# Uncomment the following line to use hyphen-insensitive completion. Case
+# sensitive completion must be off. _ and - will be interchangeable.
+# HYPHEN_INSENSITIVE="true"
 
 # Uncomment the following line to disable bi-weekly auto-update checks.
 # DISABLE_AUTO_UPDATE="true"
@@ -45,14 +50,13 @@ ZSH_THEME="re5et"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git git-flow jump osx themes rvm brew go battery)
+plugins=(git git-flow jump osx themes rvm brew go)
 
 source $ZSH/oh-my-zsh.sh
 
 # User configuration
 
 export PATH=$HOME/bin:/usr/local/bin:$PATH
-# export JAVA_HOME=`/usr/libexec/java_home`
 export PATH=$PATH:/usr/local/mysql/bin
 export PATH=$PATH:/usr/bin
 
@@ -60,10 +64,8 @@ export GOROOT=/usr/local/Cellar/go/1.5.1/libexec
 export GOPATH=$HOME/code/go
 export GOBIN=$HOME/code/go/bin
 export PATH=$PATH:$GOPATH/bin
-export PATH=$PATH:/Users/lucas/code/rust/bin
-# export RUST_SRC_PATH=$HOME/code/rust/src
+export PATH=$PATH:$HOME/.cargo/bin
 export RUST_SRC_PATH=/Users/lucas/code/rust/rust-master/src
-# export MANPATH="/usr/local/man:$MANPATH"
 
 # You may need to manually set your language environment
 # export LANG=en_US.UTF-8
@@ -98,22 +100,10 @@ hash -d t1=~/code/mobarts/transfer/TTransfer
 hash -d t2=~/code/mobarts/traversing
 hash -d t3=~/code/go/src/engine
 
-function gob
-{
-	cd ~/code/mobarts/traversing/go
-	go build -o ../igo
-	cd -
-}
 function tr
 {
     xcodebuild -project "/Users/lucas/code/mobarts/transfer/TTransfer/frameworks/runtime-src/proj.ios_mac/TTransfer.xcodeproj" -configuration Debug -target "TTransfer Mac"
     open /Users/lucas/code/mobarts/transfer/TTransfer/runtime/mac/TTransfer\ Mac.app/Contents/MacOS/TTransfer\ Mac
-}
-function tr2
-{
-    cp -fr /Users/lucas/code/mobarts/transfer/TTransfer/runtime/mac/TTransfer\ Mac.app /Users/lucas/code/mobarts/transfer/TTransfer/runtime/mac/TTransfer\ Mac.app2
-
-    open /Users/lucas/code/mobarts/transfer/TTransfer/runtime/mac/TTransfer\ Mac.app2
 }
 
 function poto
